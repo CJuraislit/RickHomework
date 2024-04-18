@@ -4,17 +4,25 @@ import { CharacterContainer } from "../containers/CharactersContainer";
 export const EpisodeItem = ({ episode }) => {
   const [open, setOpen] = useState(false);
 
-  const ids = episode.characters.map((character) => {
-    const id = character.split("/").pop();
-    return id;
-  });
+  // const ids = episode.characters.map((character) => {
+  //   const id = character.split("/").pop();
+  //   return id;
+  // });
 
-  // const ids = useMemo(() => {
+  // const ids = useMemo(() =>
   //   episode.characters.map((character) => {
   //     const id = character.split("/").pop();
   //     return id;
   //   });
   // }, [episode?.characters]);
+  const ids = useMemo(
+    () =>
+      episode.characters.map((character) => {
+        const id = character.split("/").pop();
+        return id;
+      }),
+    [episode?.characters]
+  );
 
   console.log(ids);
 
